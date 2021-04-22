@@ -72,9 +72,13 @@ empTable.addEventListener('click', (e) => {
 // BUILD THE EMPLOYEES GRID
 function buildGrid() {
     // REMOVE THE EXISTING SET OF ROWS BY REMOVING THE ENTIRE TBODY SECTION
+    var tbBody = document.getElementsByTagName("tbody");
+    tdBody.deleteRow(tdBody.target.parentElement.parentElement.rowIndex);
+    
 
     // REBUILD THE TBODY FROM SCRATCH
-    var tblBody = document.getElementsByTagName("tbody");
+    var tblBody = document.getElementsByTagName("body");
+    var tbod = document.createElement("tbody");
     // LOOP THROUGH THE ARRAY OF EMPLOYEES
     for (var i = 0; i < 5; i++) {
         // REBUILDING THE ROW STRUCTURE
@@ -84,9 +88,10 @@ function buildGrid() {
         row.appendChild(cellID);
         tblBody.appendChild(row);
     }
+    // BIND THE TBODY TO THE EMPLOYEE TABLE
     empTable.appendChild(tblBody);
 
-    // BIND THE TBODY TO THE EMPLOYEE TABLE
+    
 
     // UPDATE EMPLOYEE COUNT
 
